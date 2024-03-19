@@ -5,8 +5,8 @@ export interface ComicInfo {
   authors: Author[];
   langList: string[];
   recommendable: boolean;
-  demographic: any;
-  englishLink: any;
+  demographic: unknown;
+  englishLink: unknown;
   matureContent: boolean;
   checkVol2Chap1: boolean;
 }
@@ -16,7 +16,7 @@ export interface FirstChap {
   hid: string;
   lang: string;
   group_name: string[];
-  vol: any;
+  vol: unknown;
 }
 
 export interface Comic {
@@ -28,7 +28,7 @@ export interface Comic {
   links: Links;
   last_chapter: number;
   chapter_count: number;
-  demographic: any;
+  demographic: unknown;
   hentai: boolean;
   user_follow_count: number;
   follow_rank: number;
@@ -37,15 +37,15 @@ export interface Comic {
   desc: string;
   parsed: string;
   slug: string;
-  mismatch: any;
+  mismatch: unknown;
   year: number;
   bayesian_rating: string;
   rating_count: number;
   content_rating: string;
   translation_completed: boolean;
   chapter_numbers_reset_on_new_volume_manual: boolean;
-  final_chapter: any;
-  final_volume: any;
+  final_chapter: unknown;
+  final_volume: unknown;
   noindex: boolean;
   adsense: boolean;
   recommendations: Recommendation[];

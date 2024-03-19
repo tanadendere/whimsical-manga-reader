@@ -7,8 +7,8 @@ export interface ComicChapters {
 export interface Chapter {
   id: number;
   chap: string;
-  title: any;
-  vol: any;
+  title: unknown;
+  vol: unknown;
   lang: string;
   created_at: string;
   updated_at: string;
@@ -17,7 +17,7 @@ export interface Chapter {
   is_the_last_chapter: boolean;
   group_name: string[];
   hid: string;
-  identities: any;
+  identities: unknown;
   md_chapters_groups: MdChaptersGroup[];
 }
 

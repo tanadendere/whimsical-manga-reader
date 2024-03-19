@@ -8,28 +8,9 @@ export function getTrendingManga() {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Manga");
-      console.log(jsonResponse);
     })
-    .catch((error) => console.error("Error getting trending manga ", error))
-    .finally(() => console.log("The network call has been finalised"));
+    .catch((error) => console.error("Error getting trending manga", error));
 }
-// get top manhwa
-// export function getTrendingManhwa() {
-//   fetch(
-//     "https://api.comick.cc/top?type=trending&comic_types=manhwa&accept_mature_content=false"
-//   )
-//     .then((response) => response.json())
-//     .then((jsonResponse) => {
-//       if (!jsonResponse) {
-//         throw new Error("Test catch?");
-//       }
-//       console.log("Manhwa");
-//       console.log(jsonResponse);
-//     })
-//     .catch((error) => console.error("Error getting trending manhwa ", error))
-//     .finally(() => console.log("The network call has been finalised"));
-// }
 
 // get top manhua
 export function getTrendingManhua() {
@@ -41,11 +22,8 @@ export function getTrendingManhua() {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Manhua");
-      console.log(jsonResponse);
     })
-    .catch((error) => console.error("Error getting trending manhua ", error))
-    .finally(() => console.log("The network call has been finalised"));
+    .catch((error) => console.error("Error getting trending manhua", error));
 }
 
 // search for comics
@@ -59,11 +37,8 @@ export function search(query: string) {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Search results");
-      console.log(jsonResponse);
     })
-    .catch((error) => console.error("Error in search ", error))
-    .finally(() => console.log("The network call has been finalised"));
+    .catch((error) => console.error("Error in search", error));
 }
 
 // get the comic's information
@@ -74,11 +49,8 @@ export function getComicInfo(slug: string) {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Comic Information");
-      console.log(jsonResponse);
     })
-    .catch((error) => console.error("Error getting comic information ", error))
-    .finally(() => console.log("The network call has been finalised"));
+    .catch((error) => console.error("Error getting comic information", error));
 }
 
 // get chapters of a comic
@@ -89,13 +61,10 @@ export function getComicChapters(comicHid: string) {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Comic Chapters");
-      console.log(jsonResponse);
     })
     .catch((error) =>
-      console.error("Error getting chapters of a comic ", error)
-    )
-    .finally(() => console.log("The network call has been finalised"));
+      console.error("Error getting chapters of a comic", error)
+    );
 }
 
 // get the chapter
@@ -106,9 +75,6 @@ export function getAChapter(chapterHid: string) {
       if (!jsonResponse) {
         throw new Error("Test catch?");
       }
-      console.log("Chapters");
-      console.log(jsonResponse);
     })
-    .catch((error) => console.error("Error getting a chapter ", error))
-    .finally(() => console.log("The network call has been finalised"));
+    .catch((error) => console.error("Error getting a chapter", error));
 }

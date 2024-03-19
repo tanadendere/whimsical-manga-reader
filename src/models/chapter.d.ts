@@ -1,7 +1,7 @@
 export interface ChapterMeta {
   chapter: Chapter;
   next: Next;
-  prev: any;
+  prev: unknown;
   matureContent: boolean;
   chapters: Chapter2[];
   dupGroupChapters: DupGroupChapter[];
@@ -16,15 +16,15 @@ export interface ChapterMeta {
 export interface Chapter {
   id: number;
   chap: string;
-  vol: any;
-  title: any;
+  vol: unknown;
+  title: unknown;
   hid: string;
   group_name: string[];
-  chapter_id: any;
+  chapter_id: unknown;
   created_at: string;
   updated_at: string;
   crawled_at: string;
-  mdid: any;
+  mdid: unknown;
   comment_count: number;
   up_count: number;
   down_count: number;
@@ -104,8 +104,8 @@ export interface MdGroups {
 
 export interface Next {
   chap: string;
-  vol: any;
-  title: any;
+  vol: unknown;
+  title: unknown;
   hid: string;
   lang: string;
   id: number;
@@ -114,7 +114,7 @@ export interface Next {
 
 export interface Chapter2 {
   chap: string;
-  vol: any;
+  vol: unknown;
   hid: string;
   lang: string;
   id: number;
