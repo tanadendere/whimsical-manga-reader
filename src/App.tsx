@@ -1,9 +1,9 @@
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Whimsical Manga Reader</h1>
+      <h1 className="text-3xl font-bold">Whimsical Manga Reader</h1>
     </>
   );
 }
