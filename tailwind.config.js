@@ -8,6 +8,9 @@ export default {
     `./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}`,
   ],
   theme: {
+    fontFamily: {
+      chewy: ["Chewy", "system-ui"],
+    },
     extend: {},
   },
   darkMode: "class",

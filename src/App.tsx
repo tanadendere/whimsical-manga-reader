@@ -1,4 +1,4 @@
-import Logo from "./elements/Logo";
+import Navigation from "./elements/Navigation";
 import "./styles/App.css";
 import { NextUIProvider } from "@nextui-org/react";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <NextUIProvider>
       <>
-        <Logo />
+        <Navigation />
       </>
     </NextUIProvider>
   );
