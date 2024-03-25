@@ -1,10 +1,10 @@
-import "./App.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Whimsical Manga Reader</h1>
-    </>
+    <NextUIProvider>
+      <></>
+    </NextUIProvider>
   );
 }
 
