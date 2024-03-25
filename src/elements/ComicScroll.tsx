@@ -13,7 +13,6 @@ function ComicScroll({
       <div className="major-cities-scroll bg-[white] overflow-auto whitespace-nowrap mb-6">
         {comics.map((comic) => (
           <a
-            key={comic.name}
             className="inline-block text-black text-center no-underline p-3.5"
             href="#"
           >

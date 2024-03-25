@@ -1,12 +1,24 @@
-import HomePage from "./pages/HomePage";
+import GenreList from "./elements/GenresList";
+import { IGenreData } from "./models/genreData";
 import "./styles/App.css";
 import { NextUIProvider } from "@nextui-org/react";
 
 function App() {
+  let genres: IGenreData[] = [
+    {
+      genreName: "Action",
+    },
+    {
+      genreName: "Adventure",
+    },
+    {
+      genreName: "Sporty",
+    },
+  ];
   return (
     <NextUIProvider>
       <>
-        <HomePage />
+        <GenreList genres={genres} />
       </>
     </NextUIProvider>
   );

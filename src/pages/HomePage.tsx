@@ -17,7 +17,7 @@ function HomePage() {
   return (
     <>
       <Navigation isLoggedIn={true} />
-      <div className="max-w-md">
+      <div className="w-full">
         <div className="space-y-1">
           <ComicScroll heading="Continue Reading" comics={comics}></ComicScroll>
         </div>
