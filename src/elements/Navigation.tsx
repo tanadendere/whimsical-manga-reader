@@ -15,7 +15,7 @@ import Name from "../atoms/Name";
 
 function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
   return (
-    <Navbar>
+    <Navbar className="h-32">
       <NavbarContent className="pt-10" justify="start">
         <Link href="home">
           <Logo />
