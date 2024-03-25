@@ -1,13 +1,5 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Image,
-  Divider,
-  Button,
-} from "@nextui-org/react";
+import { Divider, Button } from "@nextui-org/react";
 import { IComicData } from "../models/comicData";
-import ninjaImage from "../assets/ninja.jpeg";
 import Navigation from "../elements/Navigation";
 
 function ComicBreakdownPage({ comic }: { comic: IComicData }) {
