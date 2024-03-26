@@ -1,4 +1,5 @@
 export interface IMangaImage {
-  id: number;
-  src: string;
+  w: number;
+  h: number;
+  b2key: string;
 }
