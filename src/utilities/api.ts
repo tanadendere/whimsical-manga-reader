@@ -26,11 +26,24 @@ export function getTrendingManhua() {
     .catch((error) => console.error("Error getting trending manhua", error));
 }
 
+// get top manhwa
+export function getTrendingManhwa() {
+  fetch(
+    "https://api.comick.io/top?type=trending&comic_types=manhwa&accept_mature_content=false"
+  )
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+      if (!jsonResponse) {
+        throw new Error("Test catch?");
+      }
+    })
+    .catch((error) => console.error("Error getting trending manhua", error));
+}
+
 // search for comics
 export function search(query: string) {
   fetch(
-    `https://api.comick.cc/v1.0/search/?page=1&limit=15&showall=false&q=${query}&t=false
- `
+    `https://api.comick.io/v1.0/search/?type=comic&page=1&limit=15&showall=false&q=${query}&t=false`
   )
     .then((response) => response.json())
     .then((jsonResponse) => {
@@ -43,7 +56,7 @@ export function search(query: string) {
 
 // get the comic's information
 export function getComicInfo(slug: string) {
-  fetch(`https://api.comick.cc/comic/${slug}/`)
+  fetch(`https://api.comick.io/comic/${slug}/`)
     .then((response) => response.json())
     .then((jsonResponse) => {
       if (!jsonResponse) {
@@ -55,7 +68,7 @@ export function getComicInfo(slug: string) {
 
 // get chapters of a comic
 export function getComicChapters(comicHid: string) {
-  fetch(`https://api.comick.cc/comic/${comicHid}/chapters?lang=en`)
+  fetch(`https://api.comick.io/comic/${comicHid}/chapters?lang=en`)
     .then((response) => response.json())
     .then((jsonResponse) => {
       if (!jsonResponse) {
@@ -69,7 +82,7 @@ export function getComicChapters(comicHid: string) {
 
 // get the chapter
 export function getAChapter(chapterHid: string) {
-  fetch(`https://api.comick.cc/chapter/${chapterHid}/`)
+  fetch(`https://api.comick.io/chapter/${chapterHid}/`)
     .then((response) => response.json())
     .then((jsonResponse) => {
       if (!jsonResponse) {
