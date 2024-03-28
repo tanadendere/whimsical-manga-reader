@@ -12,6 +12,7 @@ export interface Trending {
 }
 
 export interface ICarouselComic {
+  id: number;
   slug: string;
   title: string;
   demographic?: number;

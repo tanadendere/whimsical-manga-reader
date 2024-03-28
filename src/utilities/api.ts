@@ -1,13 +1,12 @@
+import { ICarouselComic, TopComics } from "../models/homePageData";
+
 // get top manga
-export function getTrendingManga() {
-  fetch(
+export function getTrendingManga(): Promise<TopComics> {
+  return fetch(
     "https://api.comick.io/top?type=trending&comic_types=manga&accept_mature_content=false"
   )
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+    .then((response) => {
+      return response.json();
     })
     .catch((error) => console.error("Error getting trending manga", error));
 }
