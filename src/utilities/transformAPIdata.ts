@@ -63,7 +63,11 @@ export function getMangaImageURLs(
 ): IMangaImage[] {
   const mangaImages = chapterData?.chapter?.md_images;
   for (let image of mangaImages) {
-    image.src = `https://meo3.comick.pictures/${image.b2key}`;
+    image.src = getURL(image.b2key);
   }
   return mangaImages;
+}
+
+export function getURL(b2key: string): string {
+  return `https://meo3.comick.pictures/${b2key}`;
 }
