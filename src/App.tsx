@@ -9,9 +9,7 @@ import GenreList from "./elements/GenresList";
 function App() {
   return (
     <NextUIProvider>
-      <>
-        <GenreList></GenreList>
-      </>
+      <GenreList></GenreList>
     </NextUIProvider>
   );
 }
