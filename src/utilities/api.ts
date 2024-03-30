@@ -1,79 +1,46 @@
+import { TopComics } from "../models/homePageData";
+import { IComicData } from "../models/comicData";
+import { IComicChapters, ISingularChapterMeta } from "../models/chapterData";
+import { IGenreData } from "../models/genreData";
+
 // get top manga
-export function getTrendingManga() {
-  fetch(
+export function getTrendingManga(): Promise<TopComics> {
+  return fetch(
     "https://api.comick.io/top?type=trending&comic_types=manga&accept_mature_content=false"
   )
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+    .then((response) => {
+      return response.json();
     })
     .catch((error) => console.error("Error getting trending manga", error));
 }
 
-// get top manhua
-export function getTrendingManhua() {
-  fetch(
-    "https://api.comick.io/top?type=trending&comic_types=manhua&accept_mature_content=false"
-  )
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
-    })
-    .catch((error) => console.error("Error getting trending manhua", error));
-}
-
-// get top manhwa
-export function getTrendingManhwa() {
-  fetch(
-    "https://api.comick.io/top?type=trending&comic_types=manhwa&accept_mature_content=false"
-  )
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
-    })
-    .catch((error) => console.error("Error getting trending manhua", error));
-}
-
 // search for comics
-export function search(query: string) {
-  fetch(
+export function search(query: string): Promise<IComicData[]> {
+  return fetch(
     `https://api.comick.io/v1.0/search/?type=comic&page=1&limit=15&showall=false&q=${query}&t=false`
   )
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+    .then((response) => {
+      return response.json();
     })
     .catch((error) => console.error("Error in search", error));
 }
 
 // get the comic's information
-export function getComicInfo(slug: string) {
-  fetch(`https://api.comick.io/comic/${slug}/`)
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+export function getComicInfo(slug: string): Promise<IComicData> {
+  return fetch(`https://api.comick.io/comic/${slug}/`)
+    .then((response) => {
+      return response.json();
     })
     .catch((error) => console.error("Error getting comic information", error));
 }
 
 // get chapters of a comic
-export function getComicChapters(comicHid: string) {
-  fetch(`https://api.comick.io/comic/${comicHid}/chapters?lang=en`)
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+export function getComicChapters(comicHid: string): Promise<IComicChapters> {
+  return fetch(
+    `https://api.comick.io/comic/${comicHid}/chapters?limit=20000&lang=en`
+  )
+    .then((response) => {
+      return response.json();
     })
     .catch((error) =>
       console.error("Error getting chapters of a comic", error)
@@ -81,13 +48,18 @@ export function getComicChapters(comicHid: string) {
 }
 
 // get the chapter
-export function getAChapter(chapterHid: string) {
-  fetch(`https://api.comick.io/chapter/${chapterHid}/`)
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-      if (!jsonResponse) {
-        throw new Error("Test catch?");
-      }
+export function getAChapter(chapterHid: string): Promise<ISingularChapterMeta> {
+  return fetch(`https://api.comick.io/chapter/${chapterHid}/`)
+    .then((response) => {
+      return response.json();
     })
     .catch((error) => console.error("Error getting a chapter", error));
+}
+
+export function getGenres(): Promise<IGenreData[]> {
+  return fetch("https://api.comick.io/genre/")
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.error("Error getting the genres", error));
 }
