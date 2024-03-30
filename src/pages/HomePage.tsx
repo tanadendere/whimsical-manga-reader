@@ -1,24 +1,22 @@
 import ComicScroll from "../elements/ComicScroll";
 import Navigation from "../elements/Navigation";
 import { Divider } from "@nextui-org/react";
-import { IComicData } from "../models/comicData";
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingManga } from "../utilities/api";
 import { getHomePageData } from "../utilities/transformAPIdata";
-import { ICarouselComic } from "../models/homePageData";
 
 function HomePage() {
-  const homePageQuery = useQuery({
+  const { isPending, isError, data } = useQuery({
     queryKey: ["trending"],
     queryFn: getTrendingManga,
   });
 
-  if (homePageQuery.isLoading) return <h1>Loading....</h1>;
-  if (homePageQuery.isError) return <h1>Opps! Error loading data!</h1>;
+  if (isPending) return <h1>Loading....</h1>;
+  if (isError) return <h1>Opps! Error loading data!</h1>;
 
-  if (homePageQuery.data) {
-    const trendingComics = getHomePageData(homePageQuery.data, "trending");
-    const completedComics = getHomePageData(homePageQuery.data, "completed");
+  if (data) {
+    const trendingComics = getHomePageData(data, "trending");
+    const completedComics = getHomePageData(data, "completed");
 
     return (
       <>

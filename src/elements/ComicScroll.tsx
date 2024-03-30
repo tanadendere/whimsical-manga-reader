@@ -1,5 +1,4 @@
 import ComicCard from "../atoms/ComicCard";
-import { IComicData } from "../models/comicData";
 import { ICarouselComic } from "../models/homePageData";
 function ComicScroll({
   heading,

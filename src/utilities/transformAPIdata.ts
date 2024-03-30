@@ -1,4 +1,11 @@
+import {
+  IChapter,
+  IComicChapters,
+  ISingularChapterMeta,
+} from "../models/chapterData";
+import { IComic, IComicData } from "../models/comicData";
 import { ICarouselComic, TopComics } from "../models/homePageData";
+import { IMangaImage } from "../models/mangaImageData";
 
 export function getHomePageData(
   comics: TopComics,
@@ -18,6 +25,45 @@ export function getHomePageData(
   }
 }
 
-// function getCompletedComics() ICarouselComic[] {
+export function getSearchResultsData(
+  searchResults: IComicData[]
+): IComicData[] {
+  searchResults.filter((result) => result?.comic?.content_rating === "safe");
+  return searchResults;
+}
 
-// }
+export function getComicBreakdown(comicData: IComicData): IComic {
+  const thisComic: IComic = comicData?.comic;
+  if (thisComic?.content_rating === "safe") {
+    return thisComic;
+  } else {
+    return {} as IComic;
+  }
+}
+
+export function getRefinedComicChapters(
+  latestChapter: number,
+  rawComicChapters: IComicChapters
+): IChapter[] {
+  const comicChapters: IChapter[] = rawComicChapters?.chapters;
+  const refinedComicChapters: IChapter[] = [];
+
+  let chapterCount = latestChapter;
+  for (let chapter of comicChapters) {
+    if (Number(chapter.chap) === chapterCount) {
+      refinedComicChapters.push(chapter);
+      chapterCount--;
+    }
+  }
+  return refinedComicChapters;
+}
+
+export function getMangaImageURLs(
+  chapterData: ISingularChapterMeta
+): IMangaImage[] {
+  const mangaImages = chapterData?.chapter?.md_images;
+  for (let image of mangaImages) {
+    image.src = `https://meo3.comick.pictures/${image.b2key}`;
+  }
+  return mangaImages;
+}
