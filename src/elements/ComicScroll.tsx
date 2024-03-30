@@ -7,7 +7,6 @@ function ComicScroll({
   heading: string;
   comics: ICarouselComic[];
 }) {
-  comics.map((comic) => console.log(comic.title));
   return (
     <>
       <h4 className="text-medium font-medium">{heading}</h4>

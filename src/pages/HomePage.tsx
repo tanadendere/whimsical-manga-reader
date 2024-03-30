@@ -20,7 +20,6 @@ function HomePage() {
 
     return (
       <>
-        <p></p>
         <Navigation isLoggedIn={true} />
         <div className="w-full">
           <div className="space-y-1">
