@@ -9,7 +9,7 @@ import GenreList from "./elements/GenresList";
 function App() {
   return (
     <NextUIProvider>
-      <Chapters latestChapter={204} comicHid="qxilXyaR"></Chapters>
+      <ComicBreakdownPage slug="02-omniscient-reader-s-viewpoint"></ComicBreakdownPage>
     </NextUIProvider>
   );
 }

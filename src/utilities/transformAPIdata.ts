@@ -3,7 +3,7 @@ import {
   IComicChapters,
   ISingularChapterMeta,
 } from "../models/chapterData";
-import { IComic, IComicData } from "../models/comicData";
+import { Creator, IComic, IComicData } from "../models/comicData";
 import { ICarouselComic, TopComics } from "../models/homePageData";
 import { IMangaImage } from "../models/mangaImageData";
 
@@ -35,10 +35,26 @@ export function getSearchResultsData(
 export function getComicBreakdown(comicData: IComicData): IComic {
   const thisComic: IComic = comicData?.comic;
   if (thisComic?.content_rating === "safe") {
+    thisComic.numAuthors = 1;
+    if (comicData.authors.length > 1) {
+      thisComic.numAuthors = 2;
+    }
+    thisComic.author = getAuthors(comicData.authors);
     return thisComic;
   } else {
     return {} as IComic;
   }
+}
+
+function getAuthors(authors: Creator[]) {
+  let comicAuthors: string = "";
+  for (let author of authors) {
+    if (comicAuthors.length > 0) {
+      comicAuthors = comicAuthors.concat(", ");
+    }
+    comicAuthors = comicAuthors.concat(author.name);
+  }
+  return comicAuthors;
 }
 
 export function getRefinedComicChapters(
@@ -70,4 +86,16 @@ export function getMangaImageURLs(
 
 export function getURL(b2key: string): string {
   return `https://meo3.comick.pictures/${b2key}`;
+}
+
+export function roundNumbers(num: number): String {
+  if (num < 999) {
+    return "" + num;
+  } else if (num < 999999) {
+    const newNum = num / 1000;
+    return "" + Math.round(newNum * 10) / 10 + "K";
+  } else {
+    const newNum = num / 1000000;
+    return "" + Math.round(newNum * 10) / 10 + "M";
+  }
 }
