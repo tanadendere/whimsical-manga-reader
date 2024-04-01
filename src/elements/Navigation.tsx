@@ -32,11 +32,11 @@ function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+                "h-full font-normal text-default-500 bg-white border-solid border-2",
             }}
             placeholder="Search..."
             size="sm"
-            startContent={<AiOutlineSearch className="h-18" />}
+            startContent={<AiOutlineSearch className="text-2xl" />}
             type="search"
           />
           <Dropdown placement="bottom-end">
@@ -44,11 +44,10 @@ function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
               <Avatar
                 isBordered
                 as="button"
-                className="transition-transform"
-                color="secondary"
-                name="Jason Hughes"
+                className="transition-transform bg-sky-blue"
                 size="sm"
-                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                showFallback
+                src="https://images.unsplash.com/broken"
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">

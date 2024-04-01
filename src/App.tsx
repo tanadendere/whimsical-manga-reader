@@ -5,11 +5,12 @@ import SearchPage from "./pages/SearchPage";
 import Chapters from "./elements/Chapters";
 import MangaReaderPage from "./pages/MangaReaderPage";
 import GenreList from "./elements/GenresList";
+import Navigation from "./elements/Navigation";
 
 function App() {
   return (
     <NextUIProvider>
-      <GenreList></GenreList>
+      <Navigation isLoggedIn={true}></Navigation>
     </NextUIProvider>
   );
 }
