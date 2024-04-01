@@ -9,7 +9,7 @@ import GenreList from "./elements/GenresList";
 function App() {
   return (
     <NextUIProvider>
-      <GenreList></GenreList>
+      <MangaReaderPage chapterHid="0jLxN"></MangaReaderPage>
     </NextUIProvider>
   );
 }
