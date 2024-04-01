@@ -2,11 +2,12 @@ import { TopComics } from "../models/homePageData";
 import { IComicData } from "../models/comicData";
 import { IComicChapters, ISingularChapterMeta } from "../models/chapterData";
 import { IGenreData } from "../models/genreData";
+import { apiBaseURL } from "./apiBaseURL.ts";
 
 // get top manga
 export function getTrendingManga(): Promise<TopComics> {
   return fetch(
-    "https://api.comick.io/top?type=trending&comic_types=manga&accept_mature_content=false"
+    `${apiBaseURL}top?type=trending&comic_types=manga&accept_mature_content=false`
   )
     .then((response) => {
       return response.json();
@@ -17,7 +18,7 @@ export function getTrendingManga(): Promise<TopComics> {
 // search for comics
 export function search(query: string): Promise<IComicData[]> {
   return fetch(
-    `https://api.comick.io/v1.0/search/?type=comic&page=1&limit=15&showall=false&q=${query}&t=false`
+    `${apiBaseURL}v1.0/search/?type=comic&page=1&limit=15&showall=false&q=${query}&t=false`
   )
     .then((response) => {
       return response.json();
@@ -27,7 +28,7 @@ export function search(query: string): Promise<IComicData[]> {
 
 // get the comic's information
 export function getComicInfo(slug: string): Promise<IComicData> {
-  return fetch(`https://api.comick.io/comic/${slug}/`)
+  return fetch(`${apiBaseURL}comic/${slug}/`)
     .then((response) => {
       return response.json();
     })
@@ -36,9 +37,7 @@ export function getComicInfo(slug: string): Promise<IComicData> {
 
 // get chapters of a comic
 export function getComicChapters(comicHid: string): Promise<IComicChapters> {
-  return fetch(
-    `https://api.comick.io/comic/${comicHid}/chapters?limit=20000&lang=en`
-  )
+  return fetch(`${apiBaseURL}comic/${comicHid}/chapters?limit=20000&lang=en`)
     .then((response) => {
       return response.json();
     })
@@ -49,7 +48,7 @@ export function getComicChapters(comicHid: string): Promise<IComicChapters> {
 
 // get the chapter
 export function getAChapter(chapterHid: string): Promise<ISingularChapterMeta> {
-  return fetch(`https://api.comick.io/chapter/${chapterHid}/`)
+  return fetch(`${apiBaseURL}chapter/${chapterHid}/`)
     .then((response) => {
       return response.json();
     })
@@ -57,7 +56,7 @@ export function getAChapter(chapterHid: string): Promise<ISingularChapterMeta> {
 }
 
 export function getGenres(): Promise<IGenreData[]> {
-  return fetch("https://api.comick.io/genre/")
+  return fetch("apiBaseURLgenre/")
     .then((response) => {
       return response.json();
     })
