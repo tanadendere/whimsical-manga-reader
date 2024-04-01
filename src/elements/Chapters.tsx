@@ -22,18 +22,31 @@ function Chapters({
     const comicChapters = getRefinedComicChapters(latestChapter, data);
 
     return (
-      <>
-        <h1>Chapters</h1>
-        <div className="w-full border-small px-1 py-2 border-default-200 dark:border-default-100">
-          <Listbox onAction={(key) => alert(key)}>
-            {comicChapters.map((chapter) => (
-              <ListboxItem key={chapter.hid}>
-                Chapter {chapter.chap}
-              </ListboxItem>
-            ))}
-          </Listbox>
-        </div>
-      </>
+      <div className="flex flex-col">
+        <h1 className="p-2 pb-0 text-start text-xl">Chapters</h1>
+        <span className="flex pl-2 gap-2">
+          <img
+            className="size-6"
+            src="https://flagsapi.com/GB/flat/64.png"
+            alt="Great Britain logo"
+          ></img>
+          <h2 className="text-start text-sm">in English</h2>
+        </span>
+
+        <Listbox className="w-auto" onAction={(key) => alert(key)}>
+          {comicChapters.map((chapter) => (
+            <ListboxItem
+              aria-label={"Chapter" + chapter.chap}
+              className="text-start"
+              key={chapter.hid}
+            >
+              Chapter {chapter.chap}
+              {""}
+              {chapter.title && <span>: {chapter.title}</span>}
+            </ListboxItem>
+          ))}
+        </Listbox>
+      </div>
     );
   }
 }
