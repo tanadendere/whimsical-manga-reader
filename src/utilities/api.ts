@@ -56,7 +56,7 @@ export function getAChapter(chapterHid: string): Promise<ISingularChapterMeta> {
 }
 
 export function getGenres(): Promise<IGenreData[]> {
-  return fetch("apiBaseURLgenre/")
+  return fetch(`${apiBaseURL}genre/`)
     .then((response) => {
       return response.json();
     })

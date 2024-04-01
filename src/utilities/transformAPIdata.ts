@@ -4,6 +4,7 @@ import {
   ISingularChapterMeta,
 } from "../models/chapterData";
 import { Creator, IComic, IComicData } from "../models/comicData";
+import { IGenreData } from "../models/genreData";
 import { ICarouselComic, TopComics } from "../models/homePageData";
 import { IMangaImage } from "../models/mangaImageData";
 
@@ -98,4 +99,19 @@ export function roundNumbers(num: number): String {
     const newNum = num / 1000000;
     return "" + Math.round(newNum * 10) / 10 + "M";
   }
+}
+
+export function sortGenres(
+  arr: IGenreData[],
+  comicCount: keyof IGenreData
+): IGenreData[] {
+  return arr.slice().sort((a, b) => {
+    if (a[comicCount] < b[comicCount]) {
+      return 1;
+    }
+    if (a[comicCount] > b[comicCount]) {
+      return -1;
+    }
+    return 0;
+  });
 }

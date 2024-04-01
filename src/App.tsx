@@ -9,7 +9,7 @@ import GenreList from "./elements/GenresList";
 function App() {
   return (
     <NextUIProvider>
-      <ComicBreakdownPage slug="02-omniscient-reader-s-viewpoint"></ComicBreakdownPage>
+      <GenreList></GenreList>
     </NextUIProvider>
   );
 }

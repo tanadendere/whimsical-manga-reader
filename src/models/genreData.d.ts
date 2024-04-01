@@ -1,6 +1,6 @@
 export interface IGenreData {
   id: number;
-  genreName: string;
+  name: string;
   slug: string;
   comic_count: number;
   group: string;

@@ -1,5 +1,10 @@
+import { Listbox, ListboxItem } from "@nextui-org/react";
+import randomColor from "randomcolor";
+
+import GenrePill from "../atoms/GenrePill";
 import { getGenres } from "../utilities/api";
 import { useQuery } from "@tanstack/react-query";
+import { sortGenres } from "../utilities/transformAPIdata";
 
 function GenreList() {
   const { isPending, isLoading, isError, data } = useQuery({
@@ -11,15 +16,22 @@ function GenreList() {
   if (isError) return <h1>Opps! Error loading data!</h1>;
 
   if (data) {
-    const genres = data;
+    const genres = sortGenres(data, "comic_count");
     return (
       <>
-        <h1>Explore genres</h1>
-        <div className="flex flex-col gap-2">
-          <div className="w-full border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
-            TODO: grid of genres and cute icons matching them
-          </div>
-        </div>
+        <h1 className="font-semibold m-3">Explore genres</h1>
+
+        <ul
+          className="h-full flex flex-wrap gap-2 justify-center"
+          aria-label="Genres"
+          onClick={(key) => alert(key)}
+        >
+          {genres.map((genre) => (
+            <li key={genre.id}>
+              <GenrePill genre={genre} />
+            </li>
+          ))}
+        </ul>
       </>
     );
   }
