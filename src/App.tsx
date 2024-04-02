@@ -6,11 +6,12 @@ import Chapters from "./elements/Chapters";
 import MangaReaderPage from "./pages/MangaReaderPage";
 import GenreList from "./elements/GenresList";
 import Navigation from "./elements/Navigation";
+import LoginPage from "./LoginPage/LoginPage";
 
 function App() {
   return (
     <NextUIProvider>
-      <Navigation isLoggedIn={true}></Navigation>
+      <LoginPage></LoginPage>
     </NextUIProvider>
   );
 }

@@ -21,7 +21,7 @@ function HomePage() {
     return (
       <>
         <Navigation isLoggedIn={true} />
-        <div className="w-full">
+        <div className="m-5 w-full">
           <div className="space-y-1">
             <ComicScroll
               heading="Trending"
@@ -34,9 +34,6 @@ function HomePage() {
               heading="Recently Completed"
               comics={completedComics}
             ></ComicScroll>
-          </div>
-          <div className="space-y-1">
-            <ComicScroll heading="Continue Reading" comics={[]}></ComicScroll>
           </div>
         </div>
       </>
