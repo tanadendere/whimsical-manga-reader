@@ -5,11 +5,13 @@ import SearchPage from "./pages/SearchPage";
 import Chapters from "./elements/Chapters";
 import MangaReaderPage from "./pages/MangaReaderPage";
 import GenreList from "./elements/GenresList";
+import Navigation from "./elements/Navigation";
+import LoginPage from "./LoginPage/LoginPage";
 
 function App() {
   return (
     <NextUIProvider>
-      <GenreList></GenreList>
+      <SearchPage query="Solo levelling"></SearchPage>
     </NextUIProvider>
   );
 }

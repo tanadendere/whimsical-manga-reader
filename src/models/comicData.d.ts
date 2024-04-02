@@ -2,8 +2,8 @@ import { IMangaImage } from "./mangaImageData";
 
 export interface IComicData {
   comic: IComic;
-  artists: Artist[];
-  authors: Author[];
+  artists: Creator[];
+  authors: Creator[];
   langList: string[];
 }
 
@@ -22,6 +22,14 @@ export interface IComic {
   content_rating: string;
   translation_completed: boolean;
   chapter_numbers_reset_on_new_volume_manual: boolean;
-  md_covers: MdCover[];
+  md_covers: IMangaImage[];
   lang_name: string;
+  author: string;
+  numAuthors: number;
+  bayesian_rating: string;
+}
+
+export interface Creator {
+  name: string;
+  slug: string;
 }

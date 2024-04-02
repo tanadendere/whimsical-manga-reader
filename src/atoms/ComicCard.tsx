@@ -1,22 +1,18 @@
-import { IComicData } from "../models/comicData";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { ICarouselComic } from "../models/homePageData";
+import { getURL } from "../utilities/transformAPIdata";
 
 function ComicCard({ comic }: { comic: ICarouselComic }) {
   return (
-    <Card className="py-4 h-64">
-      <CardBody className="overflow-visible py-2">
-        <Image
-          alt="Card background"
+    <div className="flex flex-col w-56">
+      <div>
+        <img
+          alt="Manga Title Image"
           className="object-cover rounded-xl"
-          src="/images/hero-card-complete.jpeg"
-          width={270}
+          src={getURL(comic.md_covers[0]?.b2key)}
         />
-      </CardBody>
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <h4 className="font-bold text-large">{comic.title}</h4>
-      </CardHeader>
-    </Card>
+      </div>
+      <div className="font-bold text-large truncate">{comic.title}</div>
+    </div>
   );
 }
 

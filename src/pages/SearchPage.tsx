@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { search } from "../utilities/api";
 import { getSearchResultsData } from "../utilities/transformAPIdata";
+import SearchResultCard from "../atoms/SearchResultCard";
 
 function SearchPage({ query }: { query: string }) {
   const { isPending, isLoading, isError, data } = useQuery({
@@ -13,7 +14,21 @@ function SearchPage({ query }: { query: string }) {
 
   if (data) {
     const searchResults = getSearchResultsData(data);
-    return <>{/* TODO: DISPLAY SEARCH RESULTS */}</>;
+    console.log(searchResults);
+    return (
+      <>
+        {searchResults.map((result) => (
+          <a
+            key={result.id}
+            className="inline-block text-black text-center no-underline p-3.5"
+            href="#"
+          >
+            <SearchResultCard comic={result} />
+          </a>
+        ))}
+      </>
+    );
+    SearchResultCard;
   }
 }
 

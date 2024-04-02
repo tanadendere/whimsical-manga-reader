@@ -9,8 +9,8 @@ function ComicScroll({
 }) {
   return (
     <>
-      <h4 className="text-medium font-medium">{heading}</h4>
-      <div className="major-cities-scroll bg-white overflow-auto whitespace-nowrap mb-6">
+      <h2 className="text-2xl font-bold text-prussian-blue">{heading}</h2>
+      <div className="bg-white overflow-auto whitespace-nowrap">
         {comics.map((comic) => (
           <a
             key={comic.id}

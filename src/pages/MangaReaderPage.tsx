@@ -1,4 +1,3 @@
-import { Listbox, ListboxItem } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 import { getAChapter } from "../utilities/api";
 import { getMangaImageURLs } from "../utilities/transformAPIdata";
@@ -16,14 +15,14 @@ function MangaReaderPage({ chapterHid }: { chapterHid: string }) {
     const mangaImages = getMangaImageURLs(data);
     return (
       <>
-        <div className="w-full border-small px-1 py-2 border-default-200 dark:border-default-100">
-          <Listbox>
+        <div className="w-full flex justify-center">
+          <ul className="p-0 gap-0">
             {mangaImages.map((mangaImage) => (
-              <ListboxItem key={mangaImage.b2key}>
+              <li key={mangaImage.b2key} className="p-0">
                 <img src={mangaImage.src} alt="Manga Image" />
-              </ListboxItem>
+              </li>
             ))}
-          </Listbox>
+          </ul>
         </div>
       </>
     );
