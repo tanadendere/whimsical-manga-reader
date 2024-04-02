@@ -9,6 +9,8 @@ import ErrorPage from "./pages/ErrorPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
 import ComicBreakdownPage from "./pages/ComicBreakdownPage.tsx";
+import Chapters from "./elements/Chapters.tsx";
+import MangaReaderPage from "./pages/MangaReaderPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +22,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/comic/:comicSlug",
-    element: <ComicBreakdownPage slug={""} />,
+    element: <ComicBreakdownPage />,
+  },
+  {
+    path: "/comic/chapters/:comicHid/:latestChapter",
+    element: <Chapters />,
+  },
+  {
+    path: "/comic/reader/:chapterHid",
+    element: <MangaReaderPage />,
   },
 ]);
 
