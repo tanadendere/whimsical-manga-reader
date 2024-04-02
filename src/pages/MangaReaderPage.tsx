@@ -2,8 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getAChapter } from "../utilities/api";
 import { getMangaImageURLs } from "../utilities/transformAPIdata";
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function MangaReaderPage({ chapterHid }: { chapterHid: string }) {
+function MangaReaderPage() {
+  const { chapterHid } = useParams();
+
+  if (!chapterHid) {
+    return <h1>Oh no, we cannot retrieve this chapter at the moment</h1>;
+  }
+
   const { isPending, isLoading, isError, data } = useQuery({
     queryKey: ["mangaImages", chapterHid],
     queryFn: () => getAChapter(chapterHid),

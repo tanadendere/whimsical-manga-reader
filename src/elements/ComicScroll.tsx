@@ -16,7 +16,7 @@ function ComicScroll({
       <div className="bg-white overflow-auto whitespace-nowrap">
         {comics.map((comic) => (
           <Link
-            to={`comic/${comic.slug}`}
+            to={`comic/${comic?.slug}`}
             key={comic.id}
             className="inline-block text-black text-center no-underline p-3.5"
           >

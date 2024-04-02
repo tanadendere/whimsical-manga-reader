@@ -11,11 +11,19 @@ import {
 } from "../utilities/transformAPIdata";
 import { GiSpellBook } from "react-icons/gi";
 import { AiFillStar } from "react-icons/ai";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-function ComicBreakdownPage({ slug }: { slug: string }) {
+function ComicBreakdownPage() {
+  const { comicSlug } = useParams();
+
+  if (!comicSlug) {
+    return <h1>This comic is not avaible right now</h1>;
+  }
+
   const { isPending, isLoading, isError, data } = useQuery({
-    queryKey: ["search", slug],
-    queryFn: () => getComicInfo(slug),
+    queryKey: ["search", comicSlug],
+    queryFn: () => getComicInfo(comicSlug),
   });
 
   if (isPending || isLoading) return <h1>Loading....</h1>;
@@ -60,14 +68,18 @@ function ComicBreakdownPage({ slug }: { slug: string }) {
               </span>
             </div>
           </div>
-
-          <Button
-            className="bg-prussian-blue text-[white] font-semibold mx-auto rounded-3xl"
-            type="submit"
-            endContent={<GiSpellBook />}
+          <Link
+            className="mx-auto"
+            to={`/comic/chapters/${comicBreakdown.hid}/${comicBreakdown.last_chapter}`}
           >
-            Read
-          </Button>
+            <Button
+              className="bg-prussian-blue text-[white] font-semibold mx-auto rounded-3xl"
+              type="submit"
+              endContent={<GiSpellBook />}
+            >
+              Read
+            </Button>
+          </Link>
 
           <div className="flex justify-evenly h-14 w-5/6 mx-auto text-small rounded-md">
             <div className="flex items-center gap-1">

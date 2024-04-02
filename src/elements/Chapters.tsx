@@ -1,17 +1,16 @@
 import { Listbox, ListboxItem } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
-import { BiArrowBack } from "react-icons/bi";
 import { getComicChapters } from "../utilities/api";
 import { getRefinedComicChapters } from "../utilities/transformAPIdata";
-import React from "react";
+import { Link, useParams } from "react-router-dom";
 
-function Chapters({
-  latestChapter,
-  comicHid,
-}: {
-  latestChapter: number;
-  comicHid: string;
-}) {
+function Chapters() {
+  const { comicHid, latestChapter } = useParams();
+
+  if (!comicHid || !latestChapter) {
+    return <h1>This comic's chapters are not avaible right now</h1>;
+  }
+
   const { isPending, isLoading, isError, data } = useQuery({
     queryKey: ["chaptersArray", comicHid],
     queryFn: () => getComicChapters(comicHid),
@@ -21,12 +20,11 @@ function Chapters({
   if (isError) return <h1>Opps! Error loading data!</h1>;
 
   if (data) {
-    const comicChapters = getRefinedComicChapters(latestChapter, data);
+    const comicChapters = getRefinedComicChapters(Number(latestChapter), data);
 
     return (
       <div className="flex flex-col">
         <div className="flex align-middle">
-          <BiArrowBack className="m-3 size-6" />
           <h1 className="p-2 pb-0 text-start text-2xl">Chapters</h1>
         </div>
         <span className="flex pl-2 gap-2">
@@ -38,17 +36,19 @@ function Chapters({
           <h2 className="text-start text-sm">in English</h2>
         </span>
 
-        <Listbox className="w-auto" onAction={(key) => alert(key)}>
+        <Listbox className="w-auto">
           {comicChapters.map((chapter) => (
-            <ListboxItem
-              aria-label={"Chapter" + chapter.chap}
-              className="text-start"
-              key={chapter.hid}
-            >
-              Chapter {chapter.chap}
-              {""}
-              {chapter.title && <span>: {chapter.title}</span>}
-            </ListboxItem>
+            <Link to={`/comic/reader/${chapter.hid}`}>
+              <ListboxItem
+                aria-label={"Chapter" + chapter.chap}
+                className="text-start"
+                key={chapter.hid}
+              >
+                Chapter {chapter.chap}
+                {""}
+                {chapter.title && <span>: {chapter.title}</span>}
+              </ListboxItem>
+            </Link>
           ))}
         </Listbox>
       </div>
