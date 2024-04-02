@@ -1,6 +1,7 @@
 import logoWithName from "../assets/longWithName.png";
 import logoNoName from "../assets/logoNoName.png";
 import { useEffect, useState } from "react";
+import React from "react";
 
 function Logo() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);

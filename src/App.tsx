@@ -7,13 +7,10 @@ import MangaReaderPage from "./pages/MangaReaderPage";
 import GenreList from "./elements/GenresList";
 import Navigation from "./elements/Navigation";
 import LoginPage from "./LoginPage/LoginPage";
+import React from "react";
 
 function App() {
-  return (
-    <NextUIProvider>
-      <SearchPage query="Solo levelling"></SearchPage>
-    </NextUIProvider>
-  );
+  return <NextUIProvider> </NextUIProvider>;
 }
 
 export default App;

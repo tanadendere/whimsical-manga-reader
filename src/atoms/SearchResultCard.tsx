@@ -1,5 +1,6 @@
 import { IComic } from "../models/comicData";
 import { getURL } from "../utilities/transformAPIdata";
+import React from "react";
 
 function SearchResultCard({ comic }: { comic: IComic }) {
   function truncateParagraph(paragraph: string): string {

@@ -1,3 +1,5 @@
+import React from "react";
+
 function Name() {
   return (
     <div className="hidden sm:flex sm:flex-col sm:items-center font-bold text-prussian-blue">

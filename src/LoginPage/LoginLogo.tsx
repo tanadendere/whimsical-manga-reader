@@ -1,4 +1,5 @@
 import logoNoName from "../assets/logoNoName.png";
+import React from "react";
 
 function LoginLogo() {
   return (

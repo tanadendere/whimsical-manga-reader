@@ -1,5 +1,6 @@
 import { Listbox, ListboxItem } from "@nextui-org/react";
 import randomColor from "randomcolor";
+import React from "react";
 
 import GenrePill from "../atoms/GenrePill";
 import { getGenres } from "../utilities/api";

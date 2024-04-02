@@ -12,8 +12,11 @@ import {
 import Logo from "../atoms/Logo";
 import { AiOutlineSearch } from "react-icons/ai";
 import Name from "../atoms/Name";
+import React, { useContext } from "react";
+import { UsernameContext } from "../LoginPage/LoginPage";
 
 function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const username = useContext(UsernameContext);
   return (
     <Navbar className="h-32">
       <NavbarContent className="pt-10" justify="start">
@@ -53,7 +56,7 @@ function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
             <DropdownMenu aria-label="Profile Actions" variant="flat">
               <DropdownItem key="profile" className="h-14 gap-2">
                 <p className="font-semibold">Signed in as</p>
-                <p className="font-semibold">zoey@example.com</p>
+                <p className="font-semibold">{username}</p>
               </DropdownItem>
               <DropdownItem key="logout" color="danger">
                 Log Out

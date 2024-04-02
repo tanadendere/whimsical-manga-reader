@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAChapter } from "../utilities/api";
 import { getMangaImageURLs } from "../utilities/transformAPIdata";
+import React from "react";
 
 function MangaReaderPage({ chapterHid }: { chapterHid: string }) {
   const { isPending, isLoading, isError, data } = useQuery({

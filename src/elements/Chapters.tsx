@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { BiArrowBack } from "react-icons/bi";
 import { getComicChapters } from "../utilities/api";
 import { getRefinedComicChapters } from "../utilities/transformAPIdata";
+import React from "react";
 
 function Chapters({
   latestChapter,
