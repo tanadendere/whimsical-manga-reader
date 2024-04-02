@@ -1,3 +1,5 @@
+import React from "react";
+
 function LoginName() {
   return (
     <div className="flex flex-col items-center font-bold text-prussian-blue">

@@ -1,4 +1,5 @@
 import { Divider, Button } from "@nextui-org/react";
+import React from "react";
 
 import Navigation from "../elements/Navigation";
 import { useQuery } from "@tanstack/react-query";

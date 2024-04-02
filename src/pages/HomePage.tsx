@@ -4,6 +4,7 @@ import { Divider } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingManga } from "../utilities/api";
 import { getHomePageData } from "../utilities/transformAPIdata";
+import React from "react";
 
 function HomePage() {
   const { isPending, isError, data } = useQuery({

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { search } from "../utilities/api";
 import { getSearchResultsData } from "../utilities/transformAPIdata";
 import SearchResultCard from "../atoms/SearchResultCard";
+import React from "react";
 
 function SearchPage({ query }: { query: string }) {
   const { isPending, isLoading, isError, data } = useQuery({

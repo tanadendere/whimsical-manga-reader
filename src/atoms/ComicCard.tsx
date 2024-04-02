@@ -1,5 +1,6 @@
 import { ICarouselComic } from "../models/homePageData";
 import { getURL } from "../utilities/transformAPIdata";
+import React from "react";
 
 function ComicCard({ comic }: { comic: ICarouselComic }) {
   return (
