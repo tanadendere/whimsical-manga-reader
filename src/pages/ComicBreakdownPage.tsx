@@ -1,5 +1,4 @@
 import { Divider, Button } from "@nextui-org/react";
-import { BiArrowBack } from "react-icons/bi";
 
 import Navigation from "../elements/Navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -10,7 +9,6 @@ import {
   roundNumbers,
 } from "../utilities/transformAPIdata";
 import { GiSpellBook } from "react-icons/gi";
-import { bgURL } from "../styles/getBackgroundImageURL";
 import { AiFillStar } from "react-icons/ai";
 
 function ComicBreakdownPage({ slug }: { slug: string }) {
@@ -92,20 +90,6 @@ function ComicBreakdownPage({ slug }: { slug: string }) {
             <p>{comicBreakdown.desc}</p>
           </div>
         </div>
-
-        {/* <div className="max-w-md">
-          <div className="space-y-1">
-            <h4 className="text-medium font-medium">{comicBreakdown?.title}</h4>
-          </div>
-          <Divider className="my-4" />
-          <div className="flex h-5 items-center space-x-4 text-small">
-            <div>Image</div>
-            <Divider orientation="vertical" />
-            <div>Comic 'Meta' data</div>
-          </div>
-          <Button color="primary">Read</Button>
-          <div>Description</div>
-        </div> */}
       </>
     );
   }

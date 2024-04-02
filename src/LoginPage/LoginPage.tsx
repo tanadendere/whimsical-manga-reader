@@ -1,8 +1,5 @@
-import Navigation from "../elements/Navigation";
 import { Input, Button } from "@nextui-org/react";
 import { GiSpellBook } from "react-icons/gi";
-import Name from "../atoms/Name";
-import Logo from "../atoms/Logo";
 import LoginLogo from "./LoginLogo";
 import LoginName from "./LoginName";
 import ninjaImage from "../assets/ninja.png";

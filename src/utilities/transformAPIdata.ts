@@ -26,10 +26,8 @@ export function getHomePageData(
   }
 }
 
-export function getSearchResultsData(
-  searchResults: IComicData[]
-): IComicData[] {
-  searchResults.filter((result) => result?.comic?.content_rating === "safe");
+export function getSearchResultsData(searchResults: IComic[]): IComic[] {
+  searchResults.filter((result) => result?.content_rating === "safe");
   return searchResults;
 }
 

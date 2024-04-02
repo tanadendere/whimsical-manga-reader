@@ -1,5 +1,3 @@
-import { IComicData } from "../models/comicData";
-import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { ICarouselComic } from "../models/homePageData";
 import { getURL } from "../utilities/transformAPIdata";
 

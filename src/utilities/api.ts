@@ -1,5 +1,5 @@
 import { TopComics } from "../models/homePageData";
-import { IComicData } from "../models/comicData";
+import { IComic, IComicData } from "../models/comicData";
 import { IComicChapters, ISingularChapterMeta } from "../models/chapterData";
 import { IGenreData } from "../models/genreData";
 import { apiBaseURL } from "./apiBaseURL.ts";
@@ -16,7 +16,7 @@ export function getTrendingManga(): Promise<TopComics> {
 }
 
 // search for comics
-export function search(query: string): Promise<IComicData[]> {
+export function search(query: string): Promise<IComic[]> {
   return fetch(
     `${apiBaseURL}v1.0/search/?type=comic&page=1&limit=15&showall=false&q=${query}&t=false`
   )

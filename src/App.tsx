@@ -11,7 +11,7 @@ import LoginPage from "./LoginPage/LoginPage";
 function App() {
   return (
     <NextUIProvider>
-      <LoginPage></LoginPage>
+      <SearchPage query="Solo levelling"></SearchPage>
     </NextUIProvider>
   );
 }
