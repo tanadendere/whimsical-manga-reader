@@ -2,34 +2,33 @@ import { useQuery } from "@tanstack/react-query";
 import { search } from "../utilities/api";
 import { getSearchResultsData } from "../utilities/transformAPIdata";
 import SearchResultCard from "../atoms/SearchResultCard";
-import React from "react";
+import {Link, useParams} from "react-router-dom";
 
-function SearchPage({ query }: { query: string }) {
+function SearchPage() {
+  const {searchTerm} = useParams()
   const { isPending, isLoading, isError, data } = useQuery({
-    queryKey: ["search", query],
-    queryFn: () => search(query),
+    queryKey: ["search", searchTerm],
+    queryFn: () => search(searchTerm ?? ''),
   });
 
   if (isPending || isLoading) return <h1>Loading....</h1>;
-  if (isError) return <h1>Opps! Error loading data!</h1>;
+  if (isError) return <h1>Oops! Error loading data!</h1>;
 
   if (data) {
     const searchResults = getSearchResultsData(data);
-    console.log(searchResults);
     return (
       <>
         {searchResults.map((result) => (
-          <a
+          <Link
             key={result.id}
             className="inline-block text-black text-center no-underline p-3.5"
-            href="#"
+            to={`/comic/${result.slug}`}
           >
             <SearchResultCard comic={result} />
-          </a>
+          </Link>
         ))}
       </>
     );
-    SearchResultCard;
   }
 }
 

@@ -3,7 +3,7 @@ import { GiSpellBook } from "react-icons/gi";
 import LoginLogo from "./LoginLogo";
 import LoginName from "./LoginName";
 import ninjaImage from "../assets/ninja.png";
-import React, { createContext } from "react";
+import { createContext } from "react";
 import HomePage from "../pages/HomePage";
 import { useForm, SubmitHandler } from "react-hook-form";
 

@@ -14,13 +14,9 @@ export function getHomePageData(
 ): ICarouselComic[] {
   switch (sectionName) {
     case "trending":
-      const trendingData: ICarouselComic[] = comics?.trending[30];
-      trendingData.filter((comic) => comic.content_rating === "safe");
-      return trendingData;
+      return comics?.trending[30].filter((comic) => comic.content_rating === "safe");
     case "completed":
-      const completedData: ICarouselComic[] = comics?.completions;
-      completedData.filter((comic) => comic.content_rating === "safe");
-      return completedData;
+      return comics?.completions.filter((comic) => comic.content_rating === "safe");
     default:
       return [];
   }
@@ -47,7 +43,7 @@ export function getComicBreakdown(comicData: IComicData): IComic {
 
 function getAuthors(authors: Creator[]) {
   let comicAuthors: string = "";
-  for (let author of authors) {
+  for (const author of authors) {
     if (comicAuthors.length > 0) {
       comicAuthors = comicAuthors.concat(", ");
     }
@@ -64,7 +60,7 @@ export function getRefinedComicChapters(
   const refinedComicChapters: IChapter[] = [];
 
   let chapterCount = latestChapter;
-  for (let chapter of comicChapters) {
+  for (const chapter of comicChapters) {
     if (Number(chapter.chap) === chapterCount) {
       refinedComicChapters.push(chapter);
       chapterCount--;
@@ -77,7 +73,7 @@ export function getMangaImageURLs(
   chapterData: ISingularChapterMeta
 ): IMangaImage[] {
   const mangaImages = chapterData?.chapter?.md_images;
-  for (let image of mangaImages) {
+  for (const image of mangaImages) {
     image.src = getURL(image.b2key);
   }
   return mangaImages;
@@ -87,7 +83,7 @@ export function getURL(b2key: string): string {
   return `https://meo3.comick.pictures/${b2key}`;
 }
 
-export function roundNumbers(num: number): String {
+export function roundNumbers(num: number): string {
   if (num < 999) {
     return "" + num;
   } else if (num < 999999) {

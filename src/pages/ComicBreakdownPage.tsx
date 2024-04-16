@@ -1,5 +1,4 @@
 import { Divider, Button } from "@nextui-org/react";
-import React from "react";
 
 import Navigation from "../elements/Navigation";
 import { useQuery } from "@tanstack/react-query";
@@ -17,22 +16,25 @@ import { Link } from "react-router-dom";
 function ComicBreakdownPage() {
   const { comicSlug } = useParams();
 
-  if (!comicSlug) {
-    return <h1>This comic is not avaible right now</h1>;
-  }
-
   const { isPending, isLoading, isError, data } = useQuery({
     queryKey: ["search", comicSlug],
-    queryFn: () => getComicInfo(comicSlug),
+    queryFn: () => getComicInfo(comicSlug ?? ''),
+    enabled: !!comicSlug
   });
 
+  if (!comicSlug) {
+    return <h1>This comic is not available right now</h1>;
+  }
+
   if (isPending || isLoading) return <h1>Loading....</h1>;
-  if (isError) return <h1>Opps! Error loading data!</h1>;
+  if (isError){
+    return <h1>Oops! Error loading data!</h1>;
+  }
 
   if (data) {
     const comicBreakdown = getComicBreakdown(data);
     if (JSON.stringify(comicBreakdown) === "{}") {
-      return <h1>Opps! Error loading data!</h1>;
+      return <h1>Oops! Error loading data!</h1>;
     }
     return (
       <>

@@ -21,5 +21,5 @@ export interface ICarouselComic {
   uploaded_at: string;
   last_chapter: number;
   content_rating: string;
-  md_covers: MdCover[];
+  md_covers: IMangaImage[];
 }

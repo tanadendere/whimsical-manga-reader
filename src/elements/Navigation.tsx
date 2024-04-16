@@ -1,7 +1,6 @@
 import {
   Navbar,
   NavbarContent,
-  Link,
   DropdownItem,
   DropdownMenu,
   Avatar,
@@ -14,13 +13,22 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Name from "../atoms/Name";
 import React, { useContext } from "react";
 import { UsernameContext } from "../LoginPage/LoginPage";
+import {Link, useNavigate} from "react-router-dom";
 
 function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
   const username = useContext(UsernameContext);
+  const navigate = useNavigate();
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      navigate(`/search/${encodeURIComponent((event.target as HTMLInputElement).value)}`)
+    }
+  }
   return (
     <Navbar className="h-32">
       <NavbarContent className="pt-10" justify="start">
-        <Link href="home">
+        <Link to={'/'} className="flex items-center justify-center">
           <Logo />
           <NavbarContent className="hidden sm:flex gap-3">
             <Name />
@@ -30,6 +38,7 @@ function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
       {isLoggedIn && (
         <NavbarContent as="div" className="items-center pt-5" justify="end">
           <Input
+              onKeyDown={handleKeyDown}
             classNames={{
               base: "max-w-full sm:max-w-[10rem] h-10",
               mainWrapper: "h-full",
@@ -47,10 +56,10 @@ function Navigation({ isLoggedIn }: { isLoggedIn: boolean }) {
               <Avatar
                 isBordered
                 as="button"
-                className="transition-transform bg-sky-blue"
+                className="transition-transform bg-sky-blue flex-shrink-0"
                 size="sm"
                 showFallback
-                src="https://images.unsplash.com/broken"
+                src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=3431&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">

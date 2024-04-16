@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import ComicCard from "../atoms/ComicCard";
 import { ICarouselComic } from "../models/homePageData";
-import React from "react";
 
 function ComicScroll({
   heading,
@@ -17,7 +16,7 @@ function ComicScroll({
         {comics.map((comic) => (
           <Link
             to={`comic/${comic?.slug}`}
-            key={comic.id}
+            key={comic.slug}
             className="inline-block text-black text-center no-underline p-3.5"
           >
             <ComicCard comic={comic} />
