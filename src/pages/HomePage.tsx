@@ -4,7 +4,6 @@ import { Divider } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 import { getTrendingManga } from "../utilities/api";
 import { getHomePageData } from "../utilities/transformAPIdata";
-import React from "react";
 
 function HomePage() {
   const { isPending, isError, data } = useQuery({
@@ -13,7 +12,7 @@ function HomePage() {
   });
 
   if (isPending) return <h1>Loading....</h1>;
-  if (isError) return <h1>Opps! Error loading data!</h1>;
+  if (isError) return <h1>Oops! Error loading data!</h1>;
 
   if (data) {
     const trendingComics = getHomePageData(data, "trending");

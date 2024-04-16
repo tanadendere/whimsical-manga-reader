@@ -1,6 +1,5 @@
 import { IComic } from "../models/comicData";
 import { getURL } from "../utilities/transformAPIdata";
-import React from "react";
 
 function SearchResultCard({ comic }: { comic: IComic }) {
   function truncateParagraph(paragraph: string): string {
@@ -31,26 +30,6 @@ function SearchResultCard({ comic }: { comic: IComic }) {
         <p className="text-xs truncate">{truncateParagraph(comic.desc)}</p>
       </div>
     </div>
-
-    // <div className="flex ">
-    //   <div>
-    //     <img
-    //       alt="Manga Title Image"
-    //       className="w-[480px] object-cover rounded-xl"
-    //       src={getURL(comic.md_covers[0]?.b2key)}
-    //     />
-    //   </div>
-    //   <div className="flex flex-col">
-    //     <div className="text-prussian-blue">Hello</div>
-    //     <div className="flex">
-    //       <span>{comic.last_chapter} Chapters</span>
-    //       <span>
-    //         {comic.translation_completed ? "Completed" : "In Progress"}
-    //       </span>
-    //     </div>
-    //     <div className="truncate">{comic.desc}</div>
-    //   </div>
-    // </div>
   );
 }
 

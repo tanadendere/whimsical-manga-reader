@@ -1,1 +1,1 @@
-export const apiBaseURL = "https://api.comick.io/";
+export const apiBaseURL = "https://api.comick.fun/";

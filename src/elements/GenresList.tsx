@@ -1,7 +1,3 @@
-import { Listbox, ListboxItem } from "@nextui-org/react";
-import randomColor from "randomcolor";
-import React from "react";
-
 import GenrePill from "../atoms/GenrePill";
 import { getGenres } from "../utilities/api";
 import { useQuery } from "@tanstack/react-query";
@@ -14,7 +10,7 @@ function GenreList() {
   });
 
   if (isPending || isLoading) return <h1>Loading....</h1>;
-  if (isError) return <h1>Opps! Error loading data!</h1>;
+  if (isError) return <h1>Oops! Error loading data!</h1>;
 
   if (data) {
     const genres = sortGenres(data, "comic_count");

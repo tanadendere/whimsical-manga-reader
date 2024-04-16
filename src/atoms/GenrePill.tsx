@@ -1,6 +1,5 @@
 import { IGenreData } from "../models/genreData";
 import randomColor from "randomcolor";
-import React from "react";
 
 function GenrePill({ genre }: { genre: IGenreData }) {
   const bgColor = randomColor();

@@ -1,7 +1,6 @@
 import logoWithName from "../assets/longWithName.png";
 import logoNoName from "../assets/logoNoName.png";
 import { useEffect, useState } from "react";
-import React from "react";
 
 function Logo() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -18,15 +17,9 @@ function Logo() {
     };
   }, []);
 
-  return screenWidth < 640 ? (
+  return (
     <img
-      src={logoWithName}
-      alt="Whimsical Comics Logo"
-      className="h-32 object-fit"
-    />
-  ) : (
-    <img
-      src={logoNoName}
+      src={screenWidth < 640 ? logoWithName : logoNoName}
       alt="Whimsical Comics Logo"
       className="h-32 object-fit"
     />
